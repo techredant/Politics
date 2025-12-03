@@ -78,6 +78,11 @@ app.use("/api/news", newsRoutes);
 //   console.log(`🚀 Server running at http://0.0.0.0:${PORT}`);
 // });
 
+app.use((err, req, res, next) => {
+  console.error("Unhandled error:", err);
+  res.status(500).json({ error: err.message || "Internal server error" });
+});
+
 const startServer = async () => {
   try {
     await connectDB();
