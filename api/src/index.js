@@ -1,9 +1,12 @@
+
+
 require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
+const { connectDB } = require("./server/server");
 
 const app = express();
 const server = http.createServer(app);
@@ -71,6 +74,24 @@ app.use("/api/stripe", stripeRoutes);
 app.use("/api/news", newsRoutes);
 
 // ✅ Start server
-server.listen(PORT, "0.0.0.0", () => {
-  console.log(`🚀 Server running at http://0.0.0.0:${PORT}`);
-});
+// server.listen(PORT, "0.0.0.0", () => {
+//   console.log(`🚀 Server running at http://0.0.0.0:${PORT}`);
+// });
+
+const startServer = async () => {
+  try {
+    await connectDB();
+
+    // listen for local development
+    if (process.env.NODE_ENV !== "production") {
+      app.listen(process.env.PORT, () =>
+        console.log("Server is up and running on PORT:", process.env.PORT)
+      );
+    }
+  } catch (error) {
+    console.error("Failed to start server:", error.message);
+    process.exit(1);
+  }
+};
+
+startServer();
