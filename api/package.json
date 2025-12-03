@@ -1,0 +1,39 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "@clerk/express": "^1.7.31",
+    "agora-access-token": "^2.0.4",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "link-preview-js": "^3.1.0",
+    "moment": "^2.30.1",
+    "mongoose": "^8.18.0",
+    "nodemailer": "^7.0.6",
+    "nodemon": "^3.1.10",
+    "openai": "^6.7.0",
+    "socket.io": "^4.8.1",
+    "stream-chat": "^9.19.1",
+    "stripe": "^18.5.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.1",
+    "@types/nodemailer": "^7.0.1",
+    "@types/stripe": "^8.0.416",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Casting",
+    "slug": "Casting",
+    "scheme": "casting",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.jpg",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "extra": {
+      "API_URL": "process.env.API_URL"
+    },
+    "splash": {
+      "image": "./assets/icon.jpg",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.jpg",
+        "backgroundColor": "#000000"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.redanttechnologies.Casting"
+    },
+    "web": {
+      "favicon": "./assets/icon.jpg"
+    },
+    "plugins": ["expo-web-browser", "expo-secure-store", "expo-video"]
+  }
+}
