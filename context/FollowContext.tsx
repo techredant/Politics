@@ -22,7 +22,7 @@ export const FollowProvider = ({ children }) => {
     try {
       setLoading(true);
       const res = await fetch(
-        `${process.env.EXPO_PUBLIC_API_URL}/api/followers?userId=${user.id}`
+        `https://politics-chi.vercel.app/api/followers?userId=${user.id}`
       );
       if (!res.ok) throw new Error("Failed to fetch follow data");
       const data = await res.json();
@@ -55,17 +55,14 @@ export const FollowProvider = ({ children }) => {
     setFollowing(updatedFollowing);
 
     try {
-      const res = await fetch(
-        `${process.env.EXPO_PUBLIC_API_URL}/api/followers`,
-        {
-          method,
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            followerUserId: user.id,
-            followingUserId: targetUserId,
-          }),
-        }
-      );
+      const res = await fetch(`https://politics-chi.vercel.app/api/followers`, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          followerUserId: user.id,
+          followingUserId: targetUserId,
+        }),
+      });
 
       if (!res.ok) throw new Error("Failed to update follow status");
       // Optionally re-fetch

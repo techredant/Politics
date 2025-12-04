@@ -39,7 +39,7 @@ const MediaScreen = () => {
   const fetchPosts = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`http://192.168.100.4:3000/api/posts`);
+      const res = await axios.get(`https://politics-chi.vercel.app/api/posts`);
       setPosts(res.data || []);
     } catch (err) {
       console.error("Error fetching posts:", err);

@@ -34,7 +34,7 @@ const MarketScreen = () => {
     setLoading(true);
     try {
       const res = await axios.get<Product[]>(
-        `http://192.168.100.4:3000/api/products`
+        `https://politics-chi.vercel.app/api/products`
       );
       setProducts(res.data);
       const uniqueCategories = Array.from(

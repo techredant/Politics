@@ -37,7 +37,7 @@ const StatusList: React.FC<StatusListProps> = ({ currentLevel }) => {
 
   const fetchStatuses = async () => {
     try {
-      let url = `http://192.168.100.28:3000/api/statuses`;
+      let url = `https://politics-chi.vercel.app/api/statuses`;
       if (currentLevel.type !== "home") {
         url += `?levelType=${currentLevel.type}&levelValue=${currentLevel.value}`;
       }

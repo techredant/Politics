@@ -35,7 +35,7 @@ const NewsScreen = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await axios.get("http://192.168.100.4:3000/api/news");
+        const res = await axios.get("https://politics-chi.vercel.app/api/news");
         const filteredNews = res.data.filter(
           (item: NewsItem) => item.accountType !== "Personal Account"
         );

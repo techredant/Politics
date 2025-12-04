@@ -125,7 +125,7 @@ const PostItem: React.FC<PostItemProps> = ({
 
     try {
       await axios.post(
-        `http://192.168.100.4:3000/api/posts/${currentPost._id}/like`,
+        `https://politics-chi.vercel.app/api/posts/${currentPost._id}/like`,
         { userId: currentUserId }
       );
       await incrementViews(); // ✅ Increase views
@@ -142,7 +142,7 @@ const PostItem: React.FC<PostItemProps> = ({
     setLoadingRecasts(true);
     try {
       await axios.post(
-        `http://192.168.100.4:3000/api/posts/${currentPost._id}/recast`,
+        `https://politics-chi.vercel.app/api/posts/${currentPost._id}/recast`,
         {
           userId: currentUserId,
           nickname: user?.username || currentUserNickname || "anon",
@@ -164,7 +164,7 @@ const PostItem: React.FC<PostItemProps> = ({
   const incrementViews = async () => {
     try {
       await axios.post(
-        `http://192.168.100.4:3000/api/posts/${currentPost._id}/view`
+        `https://politics-chi.vercel.app/api/posts/${currentPost._id}/view`
       );
       setCurrentPost((prev: any) => ({ ...prev, views: prev.views + 1 }));
     } catch (err) {
@@ -175,7 +175,7 @@ const PostItem: React.FC<PostItemProps> = ({
   /** Share post */
   const handleShare = async () => {
     try {
-      const postLink = `http://192.168.100.4:3000/${currentPost._id}`;
+      const postLink = `https://politics-chi.vercel.app/${currentPost._id}`;
       await Share.share({ message: `${currentPost.caption}\n${postLink}` });
       await incrementViews(); // ✅ Add this line
     } catch (err) {
@@ -193,7 +193,7 @@ const PostItem: React.FC<PostItemProps> = ({
       interval = setInterval(async () => {
         try {
           const res = await axios.get(
-            `http://192.168.100.4:3000/api/users/${user.id}`
+            `https://politics-chi.vercel.app/api/users/${user.id}`
           );
           if (res.data.isVerified) {
             setVerified(true);

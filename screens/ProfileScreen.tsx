@@ -48,7 +48,7 @@ const ProfileScreen = () => {
   const handleCheckout = async () => {
     try {
       const response = await fetch(
-        `http://192.168.100.4:3000/api/stripe/create-payment-intent`,
+        `https://politics-chi.vercel.app/api/stripe/create-payment-intent`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -120,7 +120,7 @@ const ProfileScreen = () => {
 
     setLoadingPosts(true);
     try {
-      let url = `http://192.168.100.4:3000/api/posts?userId=${userDetails.clerkId}&page=${page}&limit=10`;
+      let url = `https://politics-chi.vercel.app/api/posts?userId=${userDetails.clerkId}&page=${page}&limit=10`;
       if (currentLevel.type !== "home") {
         url += `&levelType=${currentLevel.type}&levelValue=${currentLevel.value}`;
       }

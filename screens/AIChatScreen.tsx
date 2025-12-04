@@ -5,7 +5,7 @@ import { Chat, Channel, MessageList, MessageInput } from "stream-chat-expo";
 import { useUser } from "@clerk/clerk-expo";
 
 const STREAM_KEY = process.env.EXPO_PUBLIC_STREAM_CHAT_KEY!;
-const BACKEND_URL = "http://192.168.100.4:3000"; // your server IP
+const BACKEND_URL = "https://politics-chi.vercel.app"; // your server IP
 
 const chatClient = StreamChat.getInstance(STREAM_KEY);
 

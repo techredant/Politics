@@ -65,7 +65,9 @@ const TrendScreen = () => {
     const fetchTrends = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://192.168.100.4:3000/api/posts`);
+        const res = await axios.get(
+          `https://politics-chi.vercel.app/api/posts`
+        );
         const posts: Post[] = res.data;
 
         // Filter posts for current level

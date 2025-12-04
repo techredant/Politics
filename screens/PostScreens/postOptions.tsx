@@ -38,7 +38,7 @@ const PostOptionsModal: React.FC<PostOptionsProps> = ({
 }) => {
   const { theme } = useTheme();
   const isOwner = currentUserId === post.userId;
-  const postLink = `http://192.168.100.28:3000/api/posts/${post._id}`;
+  const postLink = `https://politics-chi.vercel.app/api/posts/${post._id}`;
 
   const options = [
     {

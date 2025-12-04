@@ -117,7 +117,7 @@ const NamesScreen = () => {
       try {
         if (!user?.id) return;
         const res = await axios.get(
-          `http://192.168.100.28:3000/api/users/${user.id}`
+          `https://politics-chi.vercel.app/api/users/${user.id}`
         );
         if (res.data) {
           setFirstName(res.data.firstName || "");
@@ -153,12 +153,12 @@ const NamesScreen = () => {
       let res;
       if (isEditing) {
         res = await axios.put(
-          `http://192.168.100.28:3000/api/users/${user?.id}`,
+          `https://politics-chi.vercel.app/api/users/${user?.id}`,
           payload
         );
       } else {
         res = await axios.post(
-          "http://192.168.100.28:3000/api/users/create-user",
+          "https://politics-chi.vercel.app/api/users/create-user",
           payload
         );
       }
@@ -202,7 +202,7 @@ const NamesScreen = () => {
   //     };
 
   //     const res = await axios.post(
-  //       "http://192.168.100.28:3000/api/users/create-user",
+  //       "https://politics-chi.vercel.app/api/users/create-user",
   //       payload,
   //       { timeout: 5000 }
   //     );

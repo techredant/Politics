@@ -107,7 +107,7 @@ const StatusInput = () => {
     }
 
     try {
-      await axios.post(`http://192.168.100.28:3000/api/statuses`, {
+      await axios.post(`https://politics-chi.vercel.app/api/statuses`, {
         userId: user?.id,
         userName:
           user?.firstName ||

@@ -28,7 +28,7 @@ import type { RootStackParamList } from "../../types/navigation";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RouteProp } from "@react-navigation/native";
 
-// const BASE_URL = "http://192.168.100.28:3000/api";
+// const BASE_URL = "https://politics-chi.vercel.app/api";
 const { width, height } = Dimensions.get("window");
 
 type PostDetailRouteProp = RouteProp<RootStackParamList, "PostDetail">;
@@ -61,7 +61,7 @@ const PostDetailScreen = () => {
         };
       });
 
-      await axios.post(`http://192.168.100.28:3000/posts/${post._id}/like`, {
+      await axios.post(`https://politics-chi.vercel.app/posts/${post._id}/like`, {
         userId: currentUser._id,
       });
     } catch (err) {

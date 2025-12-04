@@ -20,7 +20,6 @@ import { useLevel } from "@/context/LevelContext";
 import Video from "react-native-video";
 import * as Linking from "expo-linking";
 import { useTheme } from "@/context/ThemeContext";
-import { API_URL } from "@/config";
 
 const InputScreen = () => {
   const [cast, setCast] = useState("");
@@ -215,7 +214,7 @@ const InputScreen = () => {
       };
 
       const res = await axios.post(
-        `http://${API_URL}/api/posts`,
+        `https://politics-chi.vercel.app/api/posts`,
         payload
       );
 

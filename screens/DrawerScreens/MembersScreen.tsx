@@ -13,7 +13,7 @@ import axios from "axios";
 import { useTheme } from "@/context/ThemeContext";
 import { LoaderKitView } from "react-native-loader-kit";
 
-const BASE_URL = "http://192.168.100.4:3000/api/users";
+const BASE_URL = "https://politics-chi.vercel.app/api/users";
 
 interface Member {
   _id: string;

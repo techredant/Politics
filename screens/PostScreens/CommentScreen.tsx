@@ -475,7 +475,7 @@ import { useLevel } from "@/context/LevelContext";
 import { useTheme } from "@/context/ThemeContext";
 import moment from "moment";
 
-const API_URL = `http://192.168.100.4:3000/api/comments`;
+const API_URL = `https://politics-chi.vercel.app/api/comments`;
 
 export default function CommentsScreen() {
   const route = useRoute<any>();
@@ -502,7 +502,7 @@ export default function CommentsScreen() {
   // ✅ Count views when comments screen opens
   const incrementViews = async () => {
     try {
-      await axios.put(`http://192.168.100.4:3000/api/posts/${post._id}/views`);
+      await axios.put(`https://politics-chi.vercel.app/api/posts/${post._id}/views`);
     } catch (err) {
       console.error("Error incrementing views:", err);
     }

@@ -200,7 +200,7 @@ const SellFormScreen = () => {
         userId: user.id, // ✅ Use Clerk ID directly
       };
 
-      const res = await fetch(`http://192.168.100.4:3000/api/products`, {
+      const res = await fetch(`https://politics-chi.vercel.app/api/products`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newProduct),

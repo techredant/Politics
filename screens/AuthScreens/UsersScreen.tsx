@@ -15,7 +15,7 @@ const UsersScreen = () => {
 
   useEffect(() => {
     // Fetch users from your backend
-    fetch("http://192.168.100.28:3000/api/users")
+    fetch("https://politics-chi.vercel.app/api/users")
       .then((res) => res.json())
       .then(setUsers)
       .catch(console.error);

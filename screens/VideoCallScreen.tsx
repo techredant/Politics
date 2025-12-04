@@ -20,7 +20,7 @@ import {
 } from "stream-chat-expo";
 
 const STREAM_KEY = process.env.EXPO_PUBLIC_STREAM_CHAT_KEY!;
-const BACKEND_URL = "http://192.168.100.4:3000/api/stream/token"; // 👈 your backend URL
+const BACKEND_URL = "https://politics-chi.vercel.app/api/stream/token"; // 👈 your backend URL
 
 const chatClient = StreamChat.getInstance(STREAM_KEY);
 

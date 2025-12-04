@@ -118,7 +118,7 @@ const StatusViewScreen = () => {
           onPress: async () => {
             try {
               await axios.delete(
-                `http://192.168.100.28:3000/api/status/${currentStatus._id}`,
+                `https://politics-chi.vercel.app/api/status/${currentStatus._id}`,
                 { data: { userId } }
               );
               navigation.goBack();
