@@ -84,7 +84,7 @@ const GoogleSignIn = () => {
 
         // Update or create user in your backend
         if (user) {
-          await axios.post("http://192.168.100.28:3000/api/users/create-user", {
+          await axios.post("https://politics-chi.vercel.app/api/users/create-user", {
             clerkId: user.id,
             email: user.primaryEmailAddress?.emailAddress,
             image: user.imageUrl,

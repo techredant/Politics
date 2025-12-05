@@ -3,7 +3,7 @@
     "name": "BroadCast",
     "slug": "broadcast",
     "scheme": "broadcast",
-    "version": "2.1.20",
+    "version": "2.1.21",
     "orientation": "portrait",
     "icon": "./assets/icon.jpg",
     "userInterfaceStyle": "automatic",
