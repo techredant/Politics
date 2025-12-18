@@ -25,6 +25,7 @@ import {
 import { useUser } from "@clerk/clerk-expo";
 import { useTheme } from "@/context/ThemeContext";
 import axios from "axios";
+import LoaderKitView from "react-native-loader-kit";
 
 const STREAM_KEY = process.env.EXPO_PUBLIC_STREAM_CHAT_KEY!;
 const BACKEND_URL = "https://politics-chi.vercel.app/api/stream/token";
@@ -90,7 +91,7 @@ const ChatScreen = () => {
       try {
         setLoadingMembers(true);
         const res = await axios.get(USERS_URL);
-        console.log("Members fetched:", res.data); // debug
+        // console.log("Members fetched:", res.data); // debug
         setMembers(res.data || []);
       } catch (err) {
         console.error("Fetch members error:", err);
@@ -118,10 +119,14 @@ const ChatScreen = () => {
   if (!isReady) {
     return (
       <SafeAreaView style={[styles.center, { backgroundColor: theme.background }]}>
-        <ActivityIndicator size="large" color={theme.text} />
-        <Text style={[styles.loadingText, { color: theme.text }]}>
-          Connecting to chat...
-        </Text>
+        <View>
+          <LoaderKitView
+            style={{ width: 50, height: 50 }}
+            name={"BallPulseSync"}
+            animationSpeedMultiplier={1.0}
+            color={theme.text}
+          />
+        </View>
       </SafeAreaView>
     );
   }
@@ -188,7 +193,7 @@ const ChatScreen = () => {
             />
           </View>
         ) : (
-            <Channel channel={channel} onBackPress={() => setChannel(null)}>
+            <Channel channel={channel} onBackPress={() => setChannel(null)} audioRecordingEnabled>
               <View
                 style={[
                   styles.channelContainer,

@@ -117,7 +117,7 @@ export const drawerScreens = [
     options: {
       title: "Chat",
       drawerIcon: ({ size, color }: IconProps) => (
-        <Feather name="users" size={size} color={color} />
+        <Feather name="message-circle" size={size} color={color} />
       ),
     },
   },

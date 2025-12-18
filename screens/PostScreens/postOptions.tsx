@@ -17,8 +17,6 @@ import {
   Ionicons,
 } from "@expo/vector-icons";
 import { useTheme } from "@/context/ThemeContext";
-import { API_URL } from "@/config";
-
 interface PostOptionsProps {
   post: { _id: string; userId: string };
   currentUserId: string;
