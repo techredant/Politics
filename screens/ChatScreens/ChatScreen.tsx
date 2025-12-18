@@ -29,7 +29,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({
       try {
         // ✅ Get a Stream chat token from your backend
         const response = await axios.post(
-          `${process.env.EXPO_PUBLIC_API_URL}/api/users/create-or-get-user`,
+          `https://politics-chi.vercel.app/api/users/create-or-get-user`,
           {
             clerkId,
             firstName,

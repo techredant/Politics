@@ -55,7 +55,6 @@ const PostScreen: React.FC<Props> = ({ currentLevel }) => {
   const viewabilityConfig = { itemVisiblePercentThreshold: 80 };
 
   /** Fetch posts */
-  /** Fetch posts */
   const fetchPosts = useCallback(async () => {
     try {
       const url = `${BASE_URL}/api/posts?levelType=${currentLevel.type}&levelValue=${currentLevel.value}`;

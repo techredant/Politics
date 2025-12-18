@@ -74,7 +74,7 @@ const AppNavigator: React.FC = () => {
           name="Input"
           component={InputScreen}
           options={{
-            tabBarButton: () => null, // hide default tab button
+            tabBarButton: () => null,
           }}
         />
         <Tab.Screen
@@ -90,7 +90,7 @@ const AppNavigator: React.FC = () => {
           name="You"
           component={ProfileNavigator}
           options={{
-            tabBarIcon: ({ color, size }) => (
+            tabBarIcon: () => (
               <Avatar.Image
                 size={32}
                 source={{
@@ -106,11 +106,9 @@ const AppNavigator: React.FC = () => {
         />
       </Tab.Navigator>
 
-      {/* Floating Plus Button */}
       <TouchableOpacity
         style={styles.floatingButton}
         onPress={() => {
-          // navigate to InputScreen or open modal
           navigation.navigate("Input");
         }}
       >
@@ -125,7 +123,7 @@ export default AppNavigator;
 const styles = StyleSheet.create({
   floatingButton: {
     position: "absolute",
-    bottom: 50, // ⬅️ push it higher
+    bottom: 50,
     alignSelf: "center",
     width: 60,
     height: 60,

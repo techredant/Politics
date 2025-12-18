@@ -15,7 +15,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "@/types/navigation";
 import { useTheme } from "@/context/ThemeContext";
-import { useAuth } from "@clerk/clerk-expo";
+import { useAuth, useUser } from "@clerk/clerk-expo";
 
 type RowProps = {
   label: string;
@@ -96,7 +96,11 @@ const Section = ({ title, children }: SectionProps) => {
         </Text>
       )}
       <View
-        style={{ borderBottomWidth: 1, borderBottomColor: theme.border, marginVertical: 8 }}
+        style={{
+          borderBottomWidth: 1,
+          borderBottomColor: theme.border,
+          marginVertical: 8,
+        }}
       />
       <View>{children}</View>
     </View>
@@ -106,20 +110,25 @@ const Section = ({ title, children }: SectionProps) => {
 const SettingsScreen = () => {
   const navigation = useNavigation<SettingsScreenNavProp>();
   const systemTheme = useColorScheme();
-  const [isDarkMode, setIsDarkMode] = useState(systemTheme === "dark");
 
   const { theme, isDark, toggleTheme } = useTheme();
   const { signOut } = useAuth();
   const [visible, setVisible] = useState(false);
+  const { user } = useUser();
 
   const handleConfirmLogout = async () => {
     setVisible(false);
     try {
+      // 1️⃣ Delete user account from Clerk
+      // await user?.delete();
+
+      // 2️⃣ Sign the user out (clears session)
       await signOut();
-      // Optional: navigate to login or root screen
-      // navigation.replace("Login");
+
+      // 3️⃣ Navigate to signup/login
+      navigation.replace("SignUp");
     } catch (err) {
-      console.error("Error logging out:", err);
+      console.error("Error deleting user:", err);
     }
   };
 
@@ -147,7 +156,9 @@ const SettingsScreen = () => {
         <Row
           label="Edit Profile"
           icon={<Feather name="user" size={20} color={theme.text} />}
-          onPress={() => navigation.navigate("namesScreen")}
+          onPress={() =>
+            navigation.navigate("namesScreen")
+          }
         />
         <Row
           label={isDark ? "Light Mode" : "Dark Mode"}
@@ -166,7 +177,13 @@ const SettingsScreen = () => {
       <Section title="Preferences">
         <Row
           label="Notifications"
-          icon={<Ionicons name="notifications-outline" size={20} color={theme.text} />}
+          icon={
+            <Ionicons
+              name="notifications-outline"
+              size={20}
+              color={theme.text}
+            />
+          }
           onPress={() => navigation.navigate("Notifications")}
         />
         <Row
@@ -216,7 +233,11 @@ const SettingsScreen = () => {
 
             <View style={styles.actions}>
               <TouchableOpacity
-                style={[styles.button, styles.cancel, { backgroundColor: theme.border }]}
+                style={[
+                  styles.button,
+                  styles.cancel,
+                  { backgroundColor: theme.border },
+                ]}
                 onPress={() => setVisible(false)}
               >
                 <Text style={[styles.cancelText, { color: theme.text }]}>
@@ -244,7 +265,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     paddingBottom: 30,
     paddingTop: 30,
-    flex: 1
+    flex: 1,
   },
   section: {
     marginBottom: 24,

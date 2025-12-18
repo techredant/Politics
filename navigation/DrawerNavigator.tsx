@@ -24,6 +24,7 @@ import MediaScreen from "@/screens/DrawerScreens/MediaScreen";
 import MembersScreen from "@/screens/DrawerScreens/MembersScreen";
 import { StreamChat } from "stream-chat";
 import { useTheme } from "@/context/ThemeContext";
+import ChatScreen from "@/screens/DrawerScreens/ChatScreen";
 
 const client = StreamChat.getInstance(process.env.STREAM_API_KEY);
 
@@ -83,7 +84,6 @@ const CustomDrawerContent: React.FC<DrawerContentComponentProps> = (props) => {
           )}
         </View>
       </Pressable>
-
       <DrawerItemList {...props} />
     </DrawerContentScrollView>
   );
@@ -106,6 +106,16 @@ export const drawerScreens = [
     component: MembersScreen,
     options: {
       title: "Members",
+      drawerIcon: ({ size, color }: IconProps) => (
+        <Feather name="users" size={size} color={color} />
+      ),
+    },
+  },
+  {
+    name: "Chat",
+    component: ChatScreen,
+    options: {
+      title: "Chat",
       drawerIcon: ({ size, color }: IconProps) => (
         <Feather name="users" size={size} color={color} />
       ),
@@ -163,9 +173,9 @@ const DrawerNavigator = () => {
           color: theme.text,
           fontSize: 15,
         },
-        drawerActiveTintColor: theme.primary, // active item text/icon color
-        drawerInactiveTintColor: theme.text, // inactive text/icon color
-        drawerActiveBackgroundColor: theme.border, // highlight bg
+        drawerActiveTintColor: theme.primary,
+        drawerInactiveTintColor: theme.text, 
+        drawerActiveBackgroundColor: theme.border, 
         drawerInactiveBackgroundColor: theme.card,
         headerLeft: () => (
           <TouchableOpacity

@@ -84,9 +84,14 @@ const MembersScreen: React.FC<MembersScreenProps> = ({ currentUserId }) => {
     }
   };
 
+  // console.log("membersss", members);
+  
+
   // ---------------- Render Each Member ----------------
   const renderMember = ({ item }: { item: Member }) => {
     const isCurrentUser = item.clerkId === currentUserId;
+
+    
 
     return (
       <View style={[styles.memberCard, { backgroundColor: theme.card }]}>

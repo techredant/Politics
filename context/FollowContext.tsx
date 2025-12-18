@@ -9,7 +9,7 @@ import { useUser } from "@clerk/clerk-expo";
 
 const FollowCtx = createContext(null);
 
-export const FollowProvider = ({ children }) => {
+export const FollowProvider = ({children}) => {
   const { user } = useUser();
   const [followers, setFollowers] = useState([]);
   const [following, setFollowing] = useState([]);
@@ -41,7 +41,7 @@ export const FollowProvider = ({ children }) => {
   }, [fetchFollowData]);
 
   // ✅ Follow / Unfollow logic (with optimistic update)
-  const handleFollow = async (targetUserId) => {
+  const handleFollow = async (targetUserId: any) => {
     if (!user?.id) return;
 
     const isFollowing = following.some((f) => f.userId === targetUserId);

@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import "./global.css";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import RootNavigator from "./navigation/RootNavigator";
 import { ClerkProvider } from "@clerk/clerk-expo";
 import * as SecureStore from "expo-secure-store";
@@ -41,7 +41,7 @@ export default function App() {
           <LevelProvider>
             <NavigationContainer>
               <ThemeProvider>
-                <FollowProvider>
+                {/* <FollowProvider> */}
                   <OverlayProvider>
                     <Chat client={client}>
                       <StripeProvider
@@ -53,7 +53,7 @@ export default function App() {
                       </StripeProvider>
                     </Chat>
                   </OverlayProvider>
-                </FollowProvider>
+                {/* </FollowProvider> */}
               </ThemeProvider>
             </NavigationContainer>
           </LevelProvider>

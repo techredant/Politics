@@ -60,7 +60,7 @@ const LevelScreen: React.FC = () => {
     },
     {
       text: "Go Live",
-      icon: <AntDesign name="videocamera" size={20} color="#fff" />,
+      icon: <Ionicons name="videocam-outline" size={20} color="#fff" className="animate-pulse"/>,
       name: "GoLive",
       position: 1,
       color: "#1F2937",

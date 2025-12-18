@@ -241,8 +241,8 @@ const PostItem: React.FC<PostItemProps> = ({
                 currentPost.user?.image?.trim()
                   ? { uri: currentPost.user.image }
                   : currentPost.user?.clerkId === user?.id && user?.imageUrl
-                  ? { uri: user.imageUrl }
-                  : require("@/assets/icon.jpg") // 👈 fallback placeholder
+                    ? { uri: user.imageUrl }
+                    : require("@/assets/icon.jpg") // 👈 fallback placeholder
               }
               style={styles.avatar}
             />
@@ -551,8 +551,8 @@ const PostItem: React.FC<PostItemProps> = ({
           {/* Like */}
           <TouchableOpacity onPress={handleLike} style={styles.actionButton}>
             <Animated.View style={{ transform: [{ scale: likeScale }] }}>
-              <AntDesign
-                name={isLiked ? "heart" : "hearto"}
+              <Ionicons
+                name={isLiked ? "heart" : "heart-outline"}
                 size={20}
                 color={isLiked ? "red" : "gray"}
               />

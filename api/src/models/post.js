@@ -9,8 +9,7 @@ const postSchema = new mongoose.Schema(
     levelValue: String,
     linkPreview: Object,
     likes: { type: [String], default: [] },
-    isDeleted: { type: Boolean, default: false }, // <-- added
-    // ✅ Replace retweets array with recasts object array
+    isDeleted: { type: Boolean, default: false },
     recasts: [
       {
         userId: { type: String, required: true },
