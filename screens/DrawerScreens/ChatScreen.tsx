@@ -31,6 +31,9 @@ const STREAM_KEY = process.env.EXPO_PUBLIC_STREAM_CHAT_KEY!;
 const BACKEND_URL = "https://politics-chi.vercel.app/api/stream/token";
 const USERS_URL = "https://politics-chi.vercel.app/api/users";
 
+console.log("STREAM KEY:", STREAM_KEY);
+
+
 const chatClient = StreamChat.getInstance(STREAM_KEY);
 
 interface Member {
@@ -122,7 +125,7 @@ const ChatScreen = () => {
         <View>
           <LoaderKitView
             style={{ width: 50, height: 50 }}
-            name={"BallPulseSync"}
+            name={"BallScaleRippleMultiple"}
             animationSpeedMultiplier={1.0}
             color={theme.text}
           />

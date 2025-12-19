@@ -12,6 +12,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "@/types/navigation";
 import StatusItem from "./StatusItem";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 interface Status {
   _id: string;
@@ -35,6 +37,17 @@ const StatusList: React.FC<StatusListProps> = ({ currentLevel }) => {
   const [seenStatuses, setSeenStatuses] = useState<string[]>([]);
   const navigation = useNavigation<StatusInputNavProp>();
 
+  useEffect(() => {
+    AsyncStorage.getItem("seenStatuses").then((data) => {
+      if (data) setSeenStatuses(JSON.parse(data));
+    });
+  }, []);
+
+  useEffect(() => {
+    AsyncStorage.setItem("seenStatuses", JSON.stringify(seenStatuses));
+  }, [seenStatuses]);
+
+  
   const fetchStatuses = async () => {
     try {
       let url = `https://politics-chi.vercel.app/api/statuses`;

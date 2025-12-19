@@ -71,6 +71,9 @@ const ChatScreen: React.FC<ChatScreenProps> = ({
     };
   }, [clerkId, channelId]);
 
+  console.log("");
+  
+
   if (!isReady || !channel) {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -90,3 +93,5 @@ const ChatScreen: React.FC<ChatScreenProps> = ({
 };
 
 export default ChatScreen;
+
+
